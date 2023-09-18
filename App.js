@@ -6,6 +6,7 @@ import { PDFViewPage } from './src/PDFViewPage';
 import VedioCalling from './src/VedioCalling';
 import FastListScrooling from './src/FastListScrooling';
 import { handlePermissions } from './utilities/handlePermission';
+import Application from './src/Navigation/Application';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
@@ -89,7 +90,8 @@ const App = () => {
         {/* <GoogleLogin /> */}
         {/* <PDFViewPage /> */}
          {/* <VedioCalling /> */}
-         <FastListScrooling />
+         {/* <FastListScrooling /> */}
+         <Application />
     </View>
   )
 }
