@@ -10,7 +10,9 @@ const DateOrderList = () => {
         <TouchableOpacity 
         style={{padding:10,backgroundColor:"green"}}
         onPress={()=>{
-            navigation.navigate("DateViewOrder")
+            // navigation.navigate("DateViewOrder")
+            // navigation.navigate("SectionListOrder")
+            navigation.navigate("RecycleViewList")
         }}
         > 
         <Text style={{color:"white",fontSize:18,alignSelf:"center"}}>DateOrderList</Text>
