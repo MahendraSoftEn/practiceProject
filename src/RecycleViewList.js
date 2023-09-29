@@ -9,8 +9,10 @@ const dataProvider = new DataProvider((r1, r2) => r1 !== r2);
 const layoutProvider = new LayoutProvider(
   (index) => 0, // Only one view type in this example
   (type, dim) => {
-    dim.width = Dimensions.get('window').width; // Set the width to match the screen width
-    dim.height = 50; // Set the height of each list item
+    const textHeight = 10;
+    const totalHeight = 4 * textHeight;
+    dim.width = Dimensions.get("window").width;
+    dim.height = totalHeight + 32;
   }
 );
 
@@ -83,6 +85,7 @@ const obj=[
         name:"mohan"
     },
 ]
+
 const RecycleViewList = () => {
   const rowRenderer = (type, data, index) => (
     <View style={{ padding: 16, borderBottomWidth: 1, borderBottomColor: '#ccc' }}>

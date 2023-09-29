@@ -6,6 +6,11 @@ import DateOrderList from '../DateOrderList';
 import DateViewOrder from '../Component/DateViewOrder';
 import SectionListOrder from '../SectionListOrder';
 import RecycleViewList from '../RecycleViewList';
+import ShopfiyFlashList from '../ShopfiyFlashList';
+import NativeCode from '../Component/NativeCode';
+import { PDFViewPage } from '../PDFViewPage';
+import UploadImage from '../UploadImage';
+import VedioCalling from '../VedioCalling';
 
 const Application = () => {
 
@@ -36,6 +41,27 @@ const Application = () => {
             headerShown:false
           }}
         />
+        <Stack.Screen name="ShopfiyFlashList" component={ShopfiyFlashList}
+          options={{
+            headerShown:false
+          }}
+        />
+        <Stack.Screen name="PDFViewPage" component={PDFViewPage}
+          options={{
+            headerShown:false
+          }}
+        />
+        <Stack.Screen name="UploadImage" component={UploadImage}
+          options={{
+            headerShown:false
+          }}
+        />
+        <Stack.Screen name="VedioCalling" component={VedioCalling}
+          options={{
+            headerShown:false
+          }}
+        />
+      
         
       </Stack.Navigator>
     </NavigationContainer>

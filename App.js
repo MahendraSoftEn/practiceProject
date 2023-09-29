@@ -1,61 +1,58 @@
-import { View, Text, Platform } from 'react-native'
-import React, { useEffect } from 'react'
+import {View, Text, Platform} from 'react-native';
+import React, {useEffect} from 'react';
 import messaging from '@react-native-firebase/messaging';
 import GoogleLogin from './src/GoogleLogin';
-import { PDFViewPage } from './src/PDFViewPage';
+import {PDFViewPage} from './src/PDFViewPage';
 import VedioCalling from './src/VedioCalling';
 import FastListScrooling from './src/FastListScrooling';
-import { handlePermissions } from './utilities/handlePermission';
+import {handlePermissions} from './utilities/handlePermission';
 import Application from './src/Navigation/Application';
+import store from './utilities/store';
+import { Provider } from 'react-redux';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
-
-
-
-  useEffect(()=>{
+  useEffect(() => {
     handlePermissions();
     requestUserPermission();
     notificationListener();
     getPermission();
-  },[])
+  }, []);
 
   async function requestUserPermission() {
     const authStatus = await messaging().requestPermission();
     const enabled =
       authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
       authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-  
+
     if (enabled) {
       console.log('Authorization status:', authStatus);
       getFcmToken();
     }
   }
-  
+
   const getFcmToken = async () => {
-      // let checkToken = await AsyncStorage.getItem("fcmTokenKey");
-  
-      // if (!checkToken) {
-        try {
-          let token = await messaging().getToken();
-  
-          if (token) {
-            console.log("token====>",token);
-          }
-        } catch (error) {}
-      // }
-    };
+    // let checkToken = await AsyncStorage.getItem("fcmTokenKey");
 
-    const notificationListener=()=>{
+    // if (!checkToken) {
+    try {
+      let token = await messaging().getToken();
 
-      messaging().onNotificationOpenedApp(remoteMessage => {
-        console.log(
-          'Notification caused app to open from background state:',
-          remoteMessage.notification,
-        );
-        
-      });
-      messaging()
+      if (token) {
+        console.log('token====>', token);
+      }
+    } catch (error) {}
+    // }
+  };
+
+  const notificationListener = () => {
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log(
+        'Notification caused app to open from background state:',
+        remoteMessage.notification,
+      );
+    });
+    messaging()
       .getInitialNotification()
       .then(remoteMessage => {
         if (remoteMessage) {
@@ -64,36 +61,43 @@ const App = () => {
             remoteMessage.notification,
           );
         }
-    
       });
 
-      messaging().onMessage(async remoteMessage=>{
-        console.log("remote message===>",remoteMessage)
-      })
+    messaging().onMessage(async remoteMessage => {
+      console.log('remote message===>', remoteMessage);
+    });
 
-      messaging().setBackgroundMessageHandler(async remoteMessage => {
-        console.log('Message handled in the background!', remoteMessage);
-      });
-    }
-
-    const getPermission = async () => {
-      if (Platform.OS === 'android') {
-          await PermissionsAndroid.requestMultiple([
-              PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-          ]);
-      }
+    messaging().setBackgroundMessageHandler(async remoteMessage => {
+      console.log('Message handled in the background!', remoteMessage);
+    });
   };
 
-  
-  return (
-    <View style={{flex:1}}>
-        {/* <GoogleLogin /> */}
-        {/* <PDFViewPage /> */}
-         {/* <VedioCalling /> */}
-         {/* <FastListScrooling /> */}
-         <Application />
-    </View>
-  )
-}
+  const getPermission = async () => {
+    if (Platform.OS === 'android') {
+      await PermissionsAndroid.requestMultiple([
+        PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+      ]);
+    }
+  };
 
-export default App
+  return (
+    <Provider store={store}>
+      <Application />
+    </Provider>
+  );
+};
+
+export default App;
+
+{
+  /* <GoogleLogin /> */
+}
+{
+  /* <PDFViewPage /> */
+}
+{
+  /* <VedioCalling /> */
+}
+{
+  /* <FastListScrooling /> */
+}

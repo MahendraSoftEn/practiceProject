@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+
 import org.wonday.pdf.RNPDFPackage;
 import com.ReactNativeBlobUtil.ReactNativeBlobUtilPackage;
 import org.wonday.pdf.RNPDFPackage;
@@ -36,6 +37,7 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
             new ReactNativeFirebaseAppPackage();
+            packages.add(new MyNativePackage());
           return packages;
         }
 

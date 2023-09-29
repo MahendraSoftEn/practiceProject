@@ -82,6 +82,14 @@ const leave = () => {
   }
 };
 
+const getPermission = async () => {
+  if (Platform.OS === 'android') {
+      await PermissionsAndroid.requestMultiple([
+          PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+      ]);
+  }
+};
+
 
     return (
       <SafeAreaView style={styles.main}>
@@ -113,7 +121,7 @@ const leave = () => {
   );
 }
 
-export default VedioCalling
+export default VedioCalling;
 
 const styles = StyleSheet.create({
     button: {
