@@ -71,7 +71,7 @@ const SearchMessageScreen = () => {
               }}
             />
           </TouchableOpacity>
-          <TextInput style={[styles.textInput1]} />
+          <TextInput style={[styles.textInput1]} autoFocus={true} />
           <TouchableOpacity>
             <Image
               source={require('../../../assets/Images/cancel.png')}
