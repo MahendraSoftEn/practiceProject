@@ -92,7 +92,7 @@ const SearchMessageScreen = () => {
         <Text style={{fontSize:getFontSize(20)}}>cancel</Text>
       </TouchableOpacity>
     </View>
-    <View style={{ height: Dimensions.get("screen").height, width: Dimensions.get("screen").width }}>
+    <View style={{ flex:1, width: Dimensions.get("screen").width }}>
        
        <FlashList
              data={[1,2,3,4,5,6,7,8,4,3,4,5,3,4,4,4,4,4,4,4,4,4,4,2]}
