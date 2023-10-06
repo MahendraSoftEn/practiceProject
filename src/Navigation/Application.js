@@ -11,6 +11,8 @@ import NativeCode from '../Component/NativeCode';
 import { PDFViewPage } from '../PDFViewPage';
 import UploadImage from '../UploadImage';
 import VedioCalling from '../VedioCalling';
+import MessageMainScreen from '../container/MessageApp/MessageMainScreen';
+import SearchMessageScreen from '../container/MessageApp/SearchMessageScreen';
 
 const Application = () => {
 
@@ -61,8 +63,20 @@ const Application = () => {
             headerShown:false
           }}
         />
-      
-        
+    
+        <Stack.Screen name="MessageMainScreen" component={MessageMainScreen}
+          options={{
+            headerShown:false,
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen name="SearchMessageScreen" component={SearchMessageScreen}
+          options={{
+            headerShown:false,
+            animationEnabled: false,
+          }}
+         
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

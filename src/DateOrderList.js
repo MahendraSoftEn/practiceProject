@@ -28,11 +28,12 @@ const DateOrderList = () => {
             // navigation.navigate("PDFViewPage")
             // navigation.navigate("UploadImage")
             // navigation.navigate("VedioCalling")
-            getMessage();
+            // getMessage();
             // navigation.navigate("NativeCode")
+            navigation.navigate("MessageMainScreen")
         }}
         > 
-        <Text style={{color:"white",fontSize:18,alignSelf:"center"}}>DateOrderList</Text>
+        <Text style={{color:"white",fontSize:18,alignSelf:"center"}}>New Application</Text>
        
         </TouchableOpacity>
         <Text>{message}</Text>

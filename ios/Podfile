@@ -29,6 +29,10 @@ target 'practiceProject' do
 
   pod 'react-native-pdf', :path => '../node_modules/react-native-pdf'
 
+  pod 'RNFlashList', :path => '../node_modules/@shopify/flash-list'
+
+  pod 'RNReactNativeDocViewer', :path => '../node_modules/react-native-doc-viewer'
+
   target 'practiceProjectTests' do
     inherit! :complete
     # Pods for testing
