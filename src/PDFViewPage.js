@@ -6,15 +6,18 @@ import FileViewer from 'react-native-file-viewer'
 import RNFS from 'react-native-fs'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect } from "react";
+import { useState } from "react";
 
 export const PDFViewPage = () => {
 
 
   useEffect(()=>{
-    storeData();
+    
     retrieveData();
   },[])
     const navigation=useNavigation();
+    const [name,setName]=useState("");
+
     const source = { uri: 'https://edunext-main-storage-cf.edunexttechnologies.com/edu_test/school___static/1694760467797_Get_Started_With_Smallpdf.pdf', cache: true };
     const localFile = `${RNFS.DocumentDirectoryPath}/${"test.pdf"}`;
     const filePath="https://edunext-main-storage-cf.edunexttechnologies.com/edu_test/school___static/1694760467797_Get_Started_With_Smallpdf.pdf"
@@ -38,21 +41,14 @@ export const PDFViewPage = () => {
           });
       }
 
-      const storeData = async () => {
-        try {
-          // You can store a key-value pair
-          await AsyncStorage.setItem('name', 'Mohan Kumar IT HUNT');
-          console.log('Data stored successfully.');
-        } catch (error) {
-          console.error('Error storing data: ', error);
-        }
-      };
+      
       
       const retrieveData = async () => {
         try {
           const userToken = await AsyncStorage.getItem('name');
           if (userToken !== null) {
             // Data is retrieved successfully
+            setName(userToken);
             console.log('Retrieved user token: ', userToken);
           } else {
             // Data doesn't exist
@@ -97,7 +93,7 @@ export const PDFViewPage = () => {
               fileView();
            }}
          >
-            <Text style={{color:"white"}}>Open File</Text>
+            <Text style={{color:"white"}}>{name?name:"Open File"}</Text>
          </TouchableOpacity>
     </View>
   );

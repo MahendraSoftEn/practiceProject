@@ -2,6 +2,8 @@ import { View, Text, TouchableOpacity, NativeModules } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useState } from 'react';
+import { useEffect } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const DateOrderList = () => {
 
@@ -16,6 +18,35 @@ const DateOrderList = () => {
 })
        
     }
+
+    useEffect(()=>{
+       storeData();
+      retrieveData();
+    },[])
+
+    const storeData = async () => {
+      try {
+        // You can store a key-value pair
+        await AsyncStorage.setItem('name', 'Mohan Kumar IT HUNT');
+        console.log('Data stored successfully.');
+      } catch (error) {
+        console.error('Error storing data: ', error);
+      }
+    };
+    const retrieveData = async () => {
+      try {
+        const userToken = await AsyncStorage.getItem('name');
+        if (userToken !== null) {
+          // Data is retrieved successfully
+          console.log('Retrieved user token: ', userToken);
+        } else {
+          // Data doesn't exist
+          console.log('No data found.');
+        }
+      } catch (error) {
+        console.error('Error retrieving data: ', error);
+      }
+    };
   return (
     <View style={{margin:20}}>
     
