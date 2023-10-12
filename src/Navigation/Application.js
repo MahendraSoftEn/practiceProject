@@ -13,6 +13,7 @@ import UploadImage from '../UploadImage';
 import VedioCalling from '../VedioCalling';
 import MessageMainScreen from '../container/MessageApp/MessageMainScreen';
 import SearchMessageScreen from '../container/MessageApp/SearchMessageScreen';
+import FastListScrooling from '../FastListScrooling';
 
 const Application = () => {
 
@@ -77,6 +78,14 @@ const Application = () => {
           }}
          
         />
+        <Stack.Screen name="FastListScrooling" component={FastListScrooling}
+          options={{
+            headerShown:false,
+            animationEnabled: false,
+          }}
+         
+        />
+       
       </Stack.Navigator>
     </NavigationContainer>
   )

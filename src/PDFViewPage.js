@@ -4,9 +4,16 @@ import { Dimensions, StyleSheet,Text,TouchableOpacity,View } from "react-native"
 import Pdf from "react-native-pdf";
 import FileViewer from 'react-native-file-viewer'
 import RNFS from 'react-native-fs'
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect } from "react";
 
 export const PDFViewPage = () => {
 
+
+  useEffect(()=>{
+    storeData();
+    retrieveData();
+  },[])
     const navigation=useNavigation();
     const source = { uri: 'https://edunext-main-storage-cf.edunexttechnologies.com/edu_test/school___static/1694760467797_Get_Started_With_Smallpdf.pdf', cache: true };
     const localFile = `${RNFS.DocumentDirectoryPath}/${"test.pdf"}`;
@@ -31,8 +38,31 @@ export const PDFViewPage = () => {
           });
       }
 
-
-
+      const storeData = async () => {
+        try {
+          // You can store a key-value pair
+          await AsyncStorage.setItem('name', 'Mohan Kumar IT HUNT');
+          console.log('Data stored successfully.');
+        } catch (error) {
+          console.error('Error storing data: ', error);
+        }
+      };
+      
+      const retrieveData = async () => {
+        try {
+          const userToken = await AsyncStorage.getItem('name');
+          if (userToken !== null) {
+            // Data is retrieved successfully
+            console.log('Retrieved user token: ', userToken);
+          } else {
+            // Data doesn't exist
+            console.log('No data found.');
+          }
+        } catch (error) {
+          console.error('Error retrieving data: ', error);
+        }
+      };
+      
     return (
     <View style={styles.container}>
       <TouchableOpacity

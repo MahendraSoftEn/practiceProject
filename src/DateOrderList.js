@@ -23,14 +23,15 @@ const DateOrderList = () => {
         style={{padding:10,backgroundColor:"green"}}
         onPress={()=>{
             // navigation.navigate("DateViewOrder")
+            // navigation.navigate("FastListScrooling")
             // navigation.navigate("SectionListOrder")
             // navigation.navigate("RecycleViewList")
-            // navigation.navigate("PDFViewPage")
+            navigation.navigate("PDFViewPage")
             // navigation.navigate("UploadImage")
             // navigation.navigate("VedioCalling")
             // getMessage();
             // navigation.navigate("NativeCode")
-            navigation.navigate("MessageMainScreen")
+            // navigation.navigate("MessageMainScreen")
         }}
         > 
         <Text style={{color:"white",fontSize:18,alignSelf:"center"}}>New Application</Text>

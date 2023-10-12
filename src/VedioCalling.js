@@ -10,7 +10,7 @@ ChannelProfileType,
 } from 'react-native-agora';
 
 const appId = 'fe7792bdceb24b26b5b8aef90d4c41f7';
-const channelName = '<--Insert channel name here-->';
+const channelName = 'tst';
 const token = 'dUsxCPtFToSpLOdctOlqx0:APA91bEMqZ6lqv-0hrgeI9fsvZ3mKr67fIvajWTZoBn0u_tw9HnxjaRwYbCbDgErc1cpd2hAJ0n81nAZ47gQatITFb2sOTPEA9NvMpVmG7xwVTHyQ0djR1U11Cv9mre2ptWNtozOaMyI';
 const uid = 0;
 
@@ -76,7 +76,7 @@ const leave = () => {
       agoraEngineRef.current?.leaveChannel();
       setRemoteUid(0);
       setIsJoined(false);
-      showMessage('You left the channel');
+      setMessage('You left the channel');
   } catch (e) {
       console.log(e);
   }
