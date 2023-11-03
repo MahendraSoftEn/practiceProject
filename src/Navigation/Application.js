@@ -1,94 +1,120 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import {View, Text} from 'react-native';
+import React from 'react';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
 import DateOrderList from '../DateOrderList';
 import DateViewOrder from '../Component/DateViewOrder';
 import SectionListOrder from '../SectionListOrder';
 import RecycleViewList from '../RecycleViewList';
 import ShopfiyFlashList from '../ShopfiyFlashList';
 import NativeCode from '../Component/NativeCode';
-import { PDFViewPage } from '../PDFViewPage';
+import {PDFViewPage} from '../PDFViewPage';
 import UploadImage from '../UploadImage';
 import VedioCalling from '../VedioCalling';
 import MessageMainScreen from '../container/MessageApp/MessageMainScreen';
 import SearchMessageScreen from '../container/MessageApp/SearchMessageScreen';
 import FastListScrooling from '../FastListScrooling';
 
+import MapViewComponent from '../Component/MapViewComponent';
+
 const Application = () => {
-
-    const Stack = createNativeStackNavigator();
-
+  const Stack = createNativeStackNavigator();
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="DateOrderList">
-        <Stack.Screen name="DateOrderList" component={DateOrderList}
+        <Stack.Screen
+          name="DateOrderList"
+          component={DateOrderList}
           options={{
-            headerShown:false,
-            
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="DateViewOrder" component={DateViewOrder}
+        <Stack.Screen
+          name="DateViewOrder"
+          component={DateViewOrder}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="SectionListOrder" component={SectionListOrder}
+        <Stack.Screen
+          name="SectionListOrder"
+          component={SectionListOrder}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="RecycleViewList" component={RecycleViewList}
+        <Stack.Screen
+          name="RecycleViewList"
+          component={RecycleViewList}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="ShopfiyFlashList" component={ShopfiyFlashList}
+        <Stack.Screen
+          name="ShopfiyFlashList"
+          component={ShopfiyFlashList}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="PDFViewPage" component={PDFViewPage}
+        <Stack.Screen
+          name="PDFViewPage"
+          component={PDFViewPage}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="UploadImage" component={UploadImage}
+        <Stack.Screen
+          name="UploadImage"
+          component={UploadImage}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-        <Stack.Screen name="VedioCalling" component={VedioCalling}
+        <Stack.Screen
+          name="VedioCalling"
+          component={VedioCalling}
           options={{
-            headerShown:false
+            headerShown: false,
           }}
         />
-    
-        <Stack.Screen name="MessageMainScreen" component={MessageMainScreen}
+
+        <Stack.Screen
+          name="MessageMainScreen"
+          component={MessageMainScreen}
           options={{
-            headerShown:false,
+            headerShown: false,
             animationEnabled: false,
           }}
         />
-        <Stack.Screen name="SearchMessageScreen" component={SearchMessageScreen}
+        <Stack.Screen
+          name="SearchMessageScreen"
+          component={SearchMessageScreen}
           options={{
-            headerShown:false,
+            headerShown: false,
             animationEnabled: false,
           }}
-         
         />
-        <Stack.Screen name="FastListScrooling" component={FastListScrooling}
+        <Stack.Screen
+          name="FastListScrooling"
+          component={FastListScrooling}
           options={{
-            headerShown:false,
+            headerShown: false,
             animationEnabled: false,
           }}
-         
         />
-       
+        <Stack.Screen
+          name="MapViewComponent"
+          component={MapViewComponent}
+          options={{
+            headerShown: false,
+            animationEnabled: false,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
+  );
+};
 
 export default Application;

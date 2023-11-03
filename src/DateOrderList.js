@@ -57,12 +57,13 @@ const DateOrderList = () => {
             // navigation.navigate("FastListScrooling")
             // navigation.navigate("SectionListOrder")
             // navigation.navigate("RecycleViewList")
-            navigation.navigate("PDFViewPage")
+            // navigation.navigate("PDFViewPage")
             // navigation.navigate("UploadImage")
             // navigation.navigate("VedioCalling")
             // getMessage();
             // navigation.navigate("NativeCode")
-            // navigation.navigate("MessageMainScreen")
+            navigation.navigate("MessageMainScreen")
+            // navigation.navigate("MapViewComponent")
         }}
         > 
         <Text style={{color:"white",fontSize:18,alignSelf:"center"}}>New Application</Text>
