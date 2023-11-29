@@ -16,6 +16,7 @@ import SearchMessageScreen from '../container/MessageApp/SearchMessageScreen';
 import FastListScrooling from '../FastListScrooling';
 
 import MapViewComponent from '../Component/MapViewComponent';
+import DemoStoreData from '../Component/DemoStoreData';
 
 const Application = () => {
   const Stack = createNativeStackNavigator();
@@ -107,6 +108,14 @@ const Application = () => {
         <Stack.Screen
           name="MapViewComponent"
           component={MapViewComponent}
+          options={{
+            headerShown: false,
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="DemoStoreData"
+          component={DemoStoreData}
           options={{
             headerShown: false,
             animationEnabled: false,

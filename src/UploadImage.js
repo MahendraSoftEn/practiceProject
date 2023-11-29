@@ -73,9 +73,9 @@ const UploadImage = () => {
       }
     };
   
-    const renderUploadedImage=()=>{
+    const checkDataStoredOrNot=()=>{
 
-         
+          
     }
 
 

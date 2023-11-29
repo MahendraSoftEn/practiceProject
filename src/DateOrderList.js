@@ -62,7 +62,8 @@ const DateOrderList = () => {
             // navigation.navigate("VedioCalling")
             // getMessage();
             // navigation.navigate("NativeCode")
-            navigation.navigate("MessageMainScreen")
+            // navigation.navigate("MessageMainScreen")
+            navigation.navigate("DemoStoreData")
             // navigation.navigate("MapViewComponent")
         }}
         > 

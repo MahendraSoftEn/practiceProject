@@ -8,7 +8,7 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
-import React,{useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
 import {
   dynamicSize,
@@ -24,38 +24,34 @@ const MessageMainScreen = () => {
   const navigation = useNavigation();
   const [deleteView, setDeleteView] = useState(false);
   const [itemSelected, setItemSelected] = useState(null);
-  const [isVisibleSelected,setIsVisibleSelected]=useState(false);
+  const [isVisibleSelected, setIsVisibleSelected] = useState(false);
 
-  
-  const renderSelectedCard=(item)=>{
-
-    return(
-       isVisibleSelected&&itemSelected==item.id ? (
-        <Image
-          source={require('../../../assets/Images/fillbox.png')}
-          style={{width: wpx(20), height: hpx(20), marginTop: hpx(10)}}
-        />
-      ) : (
-        <View
-          style={{
-            width: wpx(20),
-            height: hpx(20),
-            borderRadius: 50,
-            borderWidth: 1,
-            borderColor: '#8C8896',
-            marginTop: hpx(10),
-          }}
-        />
-      )
-    )
-  }
+  const renderSelectedCard = item => {
+    return isVisibleSelected && itemSelected == item.id ? (
+      <Image
+        source={require('../../../assets/Images/fillbox.png')}
+        style={{width: wpx(20), height: hpx(20), marginTop: hpx(10)}}
+      />
+    ) : (
+      <View
+        style={{
+          width: wpx(20),
+          height: hpx(20),
+          borderRadius: 50,
+          borderWidth: 1,
+          borderColor: '#8C8896',
+          marginTop: hpx(10),
+        }}
+      />
+    );
+  };
   const renderListItem = ({item, index}) => {
     return (
       <TouchableOpacity
-      onPress={()=>{
-        setItemSelected(item.id);
-        setIsVisibleSelected(true);
-      }}
+        onPress={() => {
+          setItemSelected(item.id);
+          setIsVisibleSelected(true);
+        }}
         style={{
           backgroundColor: 'white',
           paddingHorizontal: wpx(10),
@@ -63,9 +59,7 @@ const MessageMainScreen = () => {
         }}
         onLongPress={() => {
           setDeleteView(true);
-        }}
-       
-        >
+        }}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View style={{flexDirection: 'row'}}>
             <View style={{marginRight: wpx(6)}}>
@@ -81,19 +75,11 @@ const MessageMainScreen = () => {
               </View>
             </View>
           </View>
-         
+
           <View>
             <Text>{item?.time}</Text>
 
-
-            {
-              deleteView?
-              renderSelectedCard(item)
-              :
-               null
-            }
-              
-           
+            {deleteView ? renderSelectedCard(item) : null}
           </View>
         </View>
 
@@ -151,12 +137,12 @@ const MessageMainScreen = () => {
       </View>
 
       {/* <View style={{ width: Dimensions.get('screen').width}}> */}
-        <FlatList
-          data={messageData}
-          renderItem={renderListItem}
-          keyExtractor={(item)=>item.id}
-        />
-       
+      <FlatList
+        data={messageData}
+        renderItem={renderListItem}
+        keyExtractor={item => item.id}
+      />
+
       {/* </View> */}
       {deleteView ? (
         <View
@@ -172,10 +158,9 @@ const MessageMainScreen = () => {
             <Text>Item Selected</Text>
           </View>
           <TouchableOpacity
-            onPress={()=>{
+            onPress={() => {
               setDeleteView(false);
-            }}
-          >
+            }}>
             <Image
               source={require('../../../assets/Images/deleteIcon.png')}
               style={{
@@ -188,8 +173,6 @@ const MessageMainScreen = () => {
           </TouchableOpacity>
         </View>
       ) : null}
-
-      
     </View>
   );
 };

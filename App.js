@@ -7,8 +7,9 @@ import VedioCalling from './src/VedioCalling';
 import FastListScrooling from './src/FastListScrooling';
 import {handlePermissions} from './utilities/handlePermission';
 import Application from './src/Navigation/Application';
-import store from './utilities/store';
-import { Provider } from 'react-redux';
+import  { store,persistor } from './utilities/store';
+import {Provider} from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const App = () => {
@@ -82,7 +83,9 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Application />
+      <PersistGate loading={null} persistor={persistor}>
+        <Application />
+      </PersistGate>
     </Provider>
   );
 };
