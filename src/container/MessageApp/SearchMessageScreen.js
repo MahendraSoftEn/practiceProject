@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TextInput,
   Dimensions,
+  FlatList,
 } from 'react-native';
 import React from 'react';
 import {
@@ -14,7 +15,6 @@ import {
   hpx,
   wpx,
 } from '../../../utilities/responsive';
-import {FlashList} from '@shopify/flash-list';
 import {useNavigation} from '@react-navigation/native';
 import {useState} from 'react';
 import {useEffect} from 'react';
@@ -132,10 +132,10 @@ const SearchMessageScreen = props => {
         </TouchableOpacity>
       </View>
       <View style={{flex: 1, width: Dimensions.get('screen').width}}>
-        <FlashList
+        <FlatList
           data={Message_data}
           renderItem={renderListItem}
-          estimatedItemSize={120}
+
         />
       </View>
     </View>

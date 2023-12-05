@@ -16,7 +16,6 @@ import {
   hpx,
   wpx,
 } from '../../../utilities/responsive';
-import {FlashList} from '@shopify/flash-list';
 import {useNavigation} from '@react-navigation/native';
 import {messageData} from '../../../utilities/DemoData/messageData';
 
