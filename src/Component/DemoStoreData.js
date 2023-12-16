@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {setDemoData} from '../../utilities/ReduxStore/uploadimage';
 import {useNavigation} from '@react-navigation/native';
 import WebView from 'react-native-webview';
+import QRCodeScanner from 'react-native-qrcode-scanner';
 
 const DemoStoreData = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,10 @@ const DemoStoreData = () => {
   useEffect(() => {}, []);
 
   const count = useSelector(state => state.uploadImage.demoData);
-
+  
+  const onSuccess=(e)=>{
+     console.log("error===.",e);
+  }
   return (
     <View style={{flex: 1, marginTop: 20}}>
       <TouchableOpacity
@@ -43,7 +47,7 @@ const DemoStoreData = () => {
         {count}
       </Text>
 
-      <View style={{height:300,width:300}}>
+      {/* <View style={{height:300,width:300}}>
         <WebView
           // ref={(ref) => (this.webview = ref)}
           originWhitelist={['*']}
@@ -53,7 +57,11 @@ const DemoStoreData = () => {
             html: ' <video width="400" height="300" controls><source src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4"></video>',
           }}
         />
-      </View>
+      </View> */}
+        <QRCodeScanner
+        onRead={onSuccess}
+      
+      />
     </View>
   );
 };
