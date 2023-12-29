@@ -78,7 +78,7 @@ const DateOrderList = () => {
             //   }
             // });
             if(isConnected){
-              navigation.navigate("DemoStoreData");
+              navigation.navigate("GmailApp");
             }else{
               alert("no internet")
             }

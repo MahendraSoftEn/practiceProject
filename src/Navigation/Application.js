@@ -17,6 +17,7 @@ import FastListScrooling from '../FastListScrooling';
 
 import MapViewComponent from '../Component/MapViewComponent';
 import DemoStoreData from '../Component/DemoStoreData';
+import GmailApp from '../container/GmailApp';
 
 const Application = () => {
   const Stack = createNativeStackNavigator();
@@ -116,6 +117,14 @@ const Application = () => {
         <Stack.Screen
           name="DemoStoreData"
           component={DemoStoreData}
+          options={{
+            headerShown: false,
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="GmailApp"
+          component={GmailApp}
           options={{
             headerShown: false,
             animationEnabled: false,
