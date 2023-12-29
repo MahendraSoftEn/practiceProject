@@ -5,6 +5,7 @@ import {
   Image,
   StyleSheet,
   FlatList,
+  ScrollView,
 } from 'react-native';
 import React from 'react';
 import {
@@ -14,28 +15,33 @@ import {
   wpx,
 } from '../../../utilities/responsive';
 import {gmailData} from './gamilData';
+import { useNavigation } from '@react-navigation/native';
 
 const GmailApp = () => {
+
+   const navigation=useNavigation();
+
+
   const renderMailCard = ({item, index}) => {
     return (
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'space-around',
           backgroundColor: 'white',
-          marginTop:hpx(10)
+          paddingTop:hpx(10)
         }}>
-        <View>
+        <View style={{flexDirection:"row",alignItems:"center"}}>
           <Image
             source={item?.authorImage}
-            style={{width: dynamicSize(20), height: dynamicSize(20)}}
+            style={{width: dynamicSize(40), height: dynamicSize(40),margin:wpx(5)}}
           />
-          <View>
+          <View style={{marginTop:hpx(10)}}>
             <View>
-              <Text>{item?.author}</Text>
+              <Text style={{color:"#194880"}}>{item?.auther}</Text>
             </View>
-            <View>
-              <Text>{item?.title}</Text>
+            <View style={{width:wpx(270)}}>
+              <Text style={{fontSize:getFontSize(14)}}>{item?.title}</Text>
             </View>
           </View>
         </View>
@@ -50,11 +56,19 @@ const GmailApp = () => {
     );
   };
   return (
-    <View style={{flex: 1}}>
-      <TouchableOpacity style={{padding: 10, backgroundColor: 'grey'}}>
+    <View style={{flex: 1,backgroundColor:"white"}}>
+      <TouchableOpacity
+       style={{padding: 10, backgroundColor: 'grey'}}
+       onPress={()=>{
+        navigation.goBack();
+       }}
+       >
         <Text style={{color: 'white', fontSize: 17}}>Back To Home</Text>
       </TouchableOpacity>
 
+    <ScrollView
+      overScrollMode='none'
+    >
       <View style={[styles.searchContainer]}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image
@@ -78,9 +92,14 @@ const GmailApp = () => {
         <Text style={{color: 'grey', fontSize: getFontSize(17)}}>Primary</Text>
       </View>
 
-      <View>
-        <FlatList data={gmailData} renderItem={renderMailCard} />
+      <View style={{flex:1,marginTop:hpx(10)}}>
+        <FlatList 
+        scrollEnabled={false}
+        nestedScrollEnabled={true}
+        data={gmailData} 
+        renderItem={renderMailCard} />
       </View>
+      </ScrollView>
     </View>
   );
 };
@@ -90,7 +109,7 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'white',
+    backgroundColor: '#ECF6EB',
     padding: 5,
     margin: 8,
     borderRadius: 15,
